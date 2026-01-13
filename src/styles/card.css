@@ -91,3 +91,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+/* 이미지 로딩 텍스트 */
+.img-loading-text {
+  width: 100%;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 12px;
+}
+.pokemon-img.is-loading {
+  display: none;
+}

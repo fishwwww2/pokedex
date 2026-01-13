@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemons } from "../RTK/pokemonSlice";
 import { selectFavoritePokemons } from "../RTK/favoriteSlice";
+
+import PokemonCard from "../components/PokemonCard";
 import DetailModal from "../components/DetailModal";
 import FavoriteButton from "../components/favoriteButton";
+
 import "../styles/card.css";
 
 export default function Favorites() {
@@ -29,7 +32,7 @@ export default function Favorites() {
         <section className="p-6 bg-gray-50 min-h-screen">
           <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
             {favoritePokemons.map((pokemon) => (
-              <div
+              <PokemonCard
                 key={pokemon.id}
                 className="pokemon-card"
                 onClick={() => setSelectedPokemon(pokemon)}
@@ -47,7 +50,7 @@ export default function Favorites() {
                 </span>
 
                 <h2 className="pokemon-name">{pokemon.nameKo || pokemon.name}</h2>
-              </div>
+              </PokemonCard>
             ))}
           </div>
         </section>

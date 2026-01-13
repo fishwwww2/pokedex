@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemons } from "../RTK/pokemonSlice";
+
 import DetailModal from "../components/DetailModal";
+import PokemonCard from "../components/PokemonCard";
+
 
 import { getRegExp } from "korean-regexp";
 import FavoriteButton from "../components/favoriteButton";
@@ -90,9 +93,9 @@ function Main() {
           ) : (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-4">
               {filteredList.map((pokemon) => (
-                <div
+                <PokemonCard
                   key={pokemon.id}
-                  className="pokemon-card"
+                  pokemon={pokemon}
                   onClick={() => setSelectedPokemon(pokemon)}
                 >
                   <FavoriteButton pokemonId={pokemon.id} />
@@ -110,7 +113,7 @@ function Main() {
                   <h2 className="pokemon-name">
                     {pokemon.nameKo || pokemon.name}
                   </h2>
-                </div>
+                </PokemonCard>
               ))}
             </div>
           )}
