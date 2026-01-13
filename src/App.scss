@@ -1,0 +1,13 @@
+main {
+  section {
+    .pokemon-card {
+    will-change: transform;
+    transform-origin: center;
+    position: relative;
+
+    &:hover {
+        z-index: 10;
+    }
+    }
+  }
+}
